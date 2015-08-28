@@ -6,7 +6,6 @@ import urllib
 class ChatWork():
     def __init__(self, api_token):
         self.api_token = api_token
-        self.curl = 
 
     def show_rooms(self):
         """
@@ -31,8 +30,9 @@ class ChatWork():
         options = {
             "body":message
         }
-        self.curl.setopt(pycurl.URL, url)
-        self.curl.setopt(pycurl.HTTPHEADER, ['X-ChatWorkToken:' + self.api_token])
-        self.curl.setopt(pycurl.POST, 1)
-        self.curl.setopt(pycurl.POSTFIELDS, urllib.urlencode(options))
-        self.curl.perform()
+        curl = pycurl.Curl()
+        curl.setopt(pycurl.URL, url)
+        curl.setopt(pycurl.HTTPHEADER, ['X-ChatWorkToken:' + self.api_token])
+        curl.setopt(pycurl.POST, 1)
+        curl.setopt(pycurl.POSTFIELDS, urllib.urlencode(options))
+        curl.perform()
