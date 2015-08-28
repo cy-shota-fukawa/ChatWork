@@ -29,10 +29,7 @@ class ChatWork():
 
         # オプションの設定
         options = {
-            "body":message+"body",
-            "thought":message+"thought",
-            'description': 'Python test Room',
-            'icon_preset': 'beer'
+            "body":message
         }
         self.curl.setopt(pycurl.URL, url)
         self.curl.setopt(pycurl.HTTPHEADER, ['X-ChatWorkToken:' + self.api_token])
